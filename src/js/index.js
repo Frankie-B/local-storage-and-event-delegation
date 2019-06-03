@@ -11,6 +11,8 @@ function addItem(e) {
     text,
     done: false,
   };
+
+  items.push(item);
   this.reset();
 }
 addItems.addEventListener('submit', addItem);
