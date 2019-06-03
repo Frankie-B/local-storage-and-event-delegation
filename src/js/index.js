@@ -12,7 +12,21 @@ function addItem(e) {
     done: false,
   };
 
-  items.push(item);
-  this.reset();
+  items.push(item); // Creates an object from the data input by the user.
+  populateList(items, itemsList);
+  this.reset(); // Resets form input field
+}
+
+// Populating a list to have the form update with user choices.
+function populateList(plates = [], platesList) {
+  platesList.innerHTML = plates
+    .map((plate, i) => {
+      return `
+        <li>
+        <label for="">${plate.text}</label>
+        </li>
+        `;
+    })
+    .join('');
 }
 addItems.addEventListener('submit', addItem);
